@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="../css/blackboard-help.css" media="screen"/>
+
+<title>Insert title here</title>
+<style type="text/css">
+body {
+	font-family: sans-serif;
+}
+dt {
+	font-weight: bold;
+}
+dd {
+	margin-bottom: 1em;
+}
+</style>
+</head>
+<body>
+	<h1>Application Link types</h1>
+    This is a reference for the link types that appear in the <code>application-defs</code> 
+    section of the bb-manifest file.
+	<dl>
+		<dt>course_tool</dt>
+		<dd>A Course Control Panel link. only visible to users who can see the course control panel.</dd>
+		<dt>system_tool</dt>
+		<dd>A link in the system admin page.</dd>
+		<dt>cs_system_tool</dt>
+		<dd></dd>
+		<dt>user_tool</dt>
+		<dd>A link in the "Tools" module on the front page of Blackboard. </dd>
+		<dt>tool</dt>
+        <dd>Shows up in the student Tools area of a course</dd>
+		<dt>communication</dt>
+		<dd>Shows up in the student Tools area of a course</dd>
+		<dt>group_tool</dt>
+		<dd>Displays a link in the Group tools list for groups.</dd>
+		<dt>cs_action</dt>
+		<dd></dd>
+		<dt>cs_tool</dt>
+		<dd></dd>
+		<dt>cs_modify_file</dt>
+		<dd></dd>
+		<dt>cs_modify_folder</dt>
+		<dd></dd>
+		<dt>cs_manage_portfolio</dt>
+		<dd></dd>
+		<dt>cs_my_portfolios</dt>
+		<dd></dd>
+		<dt>user_list_context_menu</dt>
+		<dd>A link in the context menu in the results of a user search.  Use the <code>target_user.pk_string</code> template
+		variable to pass the user's PK to your script. (e.g. <code>mycoolpage.jsp?user_pk=@X@target_user.pk_string@X@</code>)</dd>
+		<dt>course_list_context_menu</dt>
+		<dd>A link in the context menu for a course on the course list page.  This is the page that appears
+		when you search for a course from the System Admin panel.</dd>
+		<dt>user_in_course_context_menu</dt>
+		<dd></dd>
+		<dt>gradebook_extension</dt>
+		<dd>A link in the "Manage" menu on the gradebook page.</dd>
+		<dt>admin_console</dt>
+		<dd></dd>
+		<dt>admin_console_child</dt>
+		<dd></dd>
+		<dt>vtbe_mashup_sys</dt>
+		<dd></dd>
+		<dt>vtbe_mashup_course</dt>
+		<dd></dd>
+		<dt>vtbe_mashup_priv_sys</dt>
+		<dd></dd>
+		<dt>vtbe_mashup_priv_course</dt>
+		<dd></dd>
+	</dl>
+
+
+</body>
+</html>

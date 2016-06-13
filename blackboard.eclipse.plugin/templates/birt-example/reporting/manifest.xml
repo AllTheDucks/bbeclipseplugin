@@ -1,0 +1,9 @@
+<package provider="BIRT" name="Sample Report">
+  <source>Blackboard, Inc.</source>
+  <definition name="Highlighted Hits Per Day" file="reports/hits per day report.rptdesign" version="1.0.0.0" provider="BIRT"
+  		parameterHandler="">
+    <title>Hits Per Day</title>
+    <description>This Shows Hits Per Day with Highlights on Top 10 Days</description>
+    <type>system.statistics</type>
+  </definition>
+</package>

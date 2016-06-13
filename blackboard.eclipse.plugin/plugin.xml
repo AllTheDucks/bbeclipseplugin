@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         id="sampleBuilder"
+         name="Sample Project Builder"
+         point="org.eclipse.core.resources.builders">
+      <builder
+            hasNature="true">
+         <run
+               class="com.blackboard.eclipse.builder.SampleBuilder">
+         </run>
+      </builder>
+   </extension>
+
+   <extension
+         id="BuildingBlockNature"
+         name="Blackboard Building Block"
+         point="org.eclipse.core.resources.natures">
+      <runtime>
+         <run
+               class="com.blackboard.eclipse.builder.BuildingBlockNature">
+         </run>
+      </runtime>
+      <builder
+            id="PluginTest.sampleBuilder">
+      </builder>
+   </extension>
+   	<extension point="org.eclipse.ui.ide.projectNatureImages">
+		<image 
+		    id="b2NatureImage"
+		    natureId="BuildingBlockNature"
+		    icon="icons/b2-icon-16.png">
+		</image>
+ 	</extension>
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="true"
+            objectClass="org.eclipse.core.resources.IProject"
+            nameFilter="*"
+            id="com.blackboard.eclipse.deployB2contribution">
+         <action
+               label="Deploy Building Block"
+               class="com.blackboard.eclipse.DeployB2Action"
+               menubarPath="additions"
+               enablesFor="+"
+               id="com.blackboard.eclipse.plugin.deployB2">
+         </action>
+      </objectContribution>
+   </extension>
+   <extension
+         id="xmlProblem"
+         name="XML Problem"
+         point="org.eclipse.core.resources.markers">
+      <super
+            type="org.eclipse.core.resources.problemmarker">
+      </super>
+      <persistent
+            value="true">
+      </persistent>
+   </extension>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <category
+            id="com.blackboard.eclipse.newWizards"
+            name="Blackboard">
+      </category>
+      <wizard
+            category="com.blackboard.eclipse.newWizards"
+            class="com.blackboard.eclipse.wizards.BuildingBlockNewWizard"
+            icon="icons/b2-icon-16.png"
+            project="true"
+            id="com.blackboard.eclipse.wizards.BuildingBlockNewWizard"
+            name="Building Block Project"
+            >
+      </wizard>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="com.blackboard.eclipse.editors.BbManifestMultiPageEditor"
+            contributorClass="com.blackboard.eclipse.editors.MultiPageEditorContributor"
+            filenames="bb-manifest.xml"
+            icon="icons/b2-icon-16.png"
+            id="com.blackboard.eclipse.editors.BbManifestMultiPageEditor"
+            name="bb-manifest Editor"
+            default="true">
+      </editor>
+   </extension>
+   <extension
+         point="org.eclipse.jdt.core.classpathContainerInitializer">
+      <classpathContainerInitializer
+     	id="blackboard.eclipse.plugin.CLASSPATH_CONTAINER"
+     	name="Name for Blackboard Classpath Container Initializer"
+       	class="com.blackboard.eclipse.BlackboardClasspathContainerInitializer"/>
+   </extension>
+   <extension 
+    point="org.eclipse.jdt.ui.classpathContainerPage">
+   <classpathContainerPage
+       id="blackboard.eclipse.plugin.CLASSPATH_CONTAINER"
+       name="Blackboard Server Libraries"
+       class="com.blackboard.eclipse.BlackboardClasspathContainerPage"/>
+	</extension>
+
+<extension point="org.eclipse.ui.preferencePages">
+ 	<page id="BbPluginSdkPreferencePage"
+ 		name="Blackboard"
+    		class="com.blackboard.eclipse.BbPluginSdkPreferencePage">
+   	</page>
+</extension>
+<extension
+      point="org.eclipse.ui.editors.templates">
+	<include file="templates/eclipse-templates.xml"/>
+</extension>
+
+</plugin>

@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Blackboard Help
+Bundle-SymbolicName: blackboard.eclipse.plugin.help; singleton:=true
+Bundle-Version: 1.0.16
+Bundle-Activator: blackboard.eclipse.plugin.help.BbHelpPlugin
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

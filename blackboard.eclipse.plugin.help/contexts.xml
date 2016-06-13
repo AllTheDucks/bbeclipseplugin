@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<contexts>
+	<context id="new_b2_wizard_page_context" title="New Building Block Wizard" >
+		<description>This &lt;b&gt;wizard&lt;/b&gt; helps you create a new Building Block. The values will be automatically populated in the bb-manifest.xml file, and the correct files will be added to your project for the building block type that you select.</description>
+		<topic href="html/reference/new-b2-wizard.html" label="New Building Block Wizard" />
+		<topic href="html/reference/project-templates-ref.html" label="Project Templates" />
+	</context>
+ <context id="manifest_editor_overview_page" title="Overview Page">
+    <description>The Overview page of the bb-manifest editor lets you enter general details for your building block.</description>
+    <topic href="html/reference/bb-manifest-ref.html" label="bb-manifest.xml Reference"/>
+ </context>
+</contexts>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+
+<toc label="Reference" link_to="toc.xml#reference"> 
+	<topic label="bb-manifest.xml Reference"  href="html/reference/bb-manifest-ref.html"> 
+		<topic label="Link Types" href="html/reference/link-types.html" /> 
+	</topic>
+ <topic href="html/reference/new-b2-wizard.html" label="New Building Block Wizard">
+ </topic>
+ <topic href="html/reference/project-templates-ref.html" label="Project Templates">
+ </topic>
+ <topic href="html/reference/bbng-tag-ref.html" label="bbNG Tag Reference">
+    <topic href="html/reference/bbng-tag-ref-pages.html" label="Page Tags">
+    </topic>
+ </topic>
+</toc>

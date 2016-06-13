@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<manifest>
+  <!-- core extension information -->
+  <plugin>
+	<name value="B2 - Starter Kit" />
+    <description value="Blackboard Building Blocks Starter Kit" />
+    <handle value="B2SK"/>
+    <version value="1.0.0"/>
+    <requires>
+    	<bbversion value="9.1.0"/>
+    </requires>
+    <vendor>
+      <id value="ist"/>
+      <name value="Syracuse University iSchool"/>
+      <url value="http://iSchool.syr.edu" />
+      <description value="Syracuse University School of Information Studies" />
+    </vendor>
+    <http-actions>
+      <config value="system/index.jsp" />
+    </http-actions>
+    
+	<!-- Content Type Handlers Defined by This Buidling Block -->
+	<content-handlers>
+		<!-- Content Type Handlers for Building Block. -->
+		<content-handler> 
+			<name value="B2SK - Course Content Mashup"/>
+			<handle value= "resource/x-bb-b2sk-content-mashup"/>
+			<http-actions>
+				<create value="course/course_content_mashup.jsp"/>
+			</http-actions>
+			<icons>
+				<toolbar value="/images/b2sk_logo_12x12.png"/>
+				<listitem value="images/b2sk_logo_12x12.png"/>
+			</icons>
+			<types>
+				<type>
+					<action-type value="mashup"/>
+				</type>
+				<type>
+					<action-type value="image"/>
+				</type>            
+	        </types>             
+		</content-handler>
+		<content-handler> 
+			<name value="B2SK - Content Mashup Demo"/>
+			<handle value= "resource/x-bb-b2sk-content-mashup-demo"/>
+			<http-actions>
+				<create value="course/content_mashup_demo.jsp"/>
+			</http-actions>
+			<icons>
+				<toolbar value="/images/b2sk_logo_12x12.png"/>
+				<listitem value="images/b2sk_logo_12x12.png"/>
+			</icons>
+			<types>
+				<type>
+					<action-type value="mashup"/>
+				</type>
+				<type>
+					<action-type value="image"/>
+				</type>            
+	        </types>             
+		</content-handler>
+	</content-handlers>
+    
+    <!-- Tools defined by this Building Block -->
+    <application-defs>
+      <application handle="b2sk" type="shared" use-ssl="false" name="B2-StarterKit" 
+      		can-allow-guest="true" small-icon="images/b2sk_logo.png" large-icon="images/b2sk_logo.png">
+        <description>plugin.app.description</description>
+        <links>
+			<link> <!-- "System Tool" Entry Point -->
+	            <type value="system_tool"/>
+	            <name value="B2SK: System Tool"/>
+            	<url value="system/index.jsp" />
+            	<description value="B2SK: Entry Point for a System Tool Building Block" />
+            	<icons>
+		        	<listitem value="images/byob2_logo_50x50.png"/>
+            	</icons>
+			</link>						
+			<link> <!-- "Tools" Entry Point inside course -->
+				<type value="tool" />
+				<name value="B2SK: Tools" />
+				<url value="course/tool.jsp" />
+				<description value="B2SK Entry Point for a Building Block in the Tools Section" />
+				<icons>
+		        	<listitem value="images/b2sk_logo_50x50.png"/>
+	            </icons>
+	         </link>			
+			<link> <!-- "Course Tools" Entry Point inside course -->
+				<type value="course_tool" />
+				<name value="B2SK: Course Tool" />
+				<url value="course/course_tool.jsp" />
+				<description value="B2SK Entry Point for a Course Tools Building Block" />
+			</link>
+			<link> <!-- "User Tools" Entry Point institution page -->
+				<type value="user_tool" />
+				<name value="B2SK: User Tool" />
+				<url value="portal/user_tool.jsp" />
+				<description value="B2SK Entry Point for a User Tools Building Block" />
+				<icons>
+		        	<listitem value="images/b2sk_logo_12x12.png"/>
+	            </icons>
+	         </link>
+			<link> <!-- "VBTE Course Mashup" Entry Point page -->
+				<type value="vtbe_mashup_course" />
+				<name value="B2SK VBTE Course Mashup" />
+				<url value="course/vbte_mashup_course.jsp?vtbe=true&amp;course_id=@X@course.pk_string@X@" />
+				<description value="B2SK Entry Point for a VBTE Course Mashup Building Block" />
+			</link>       			
+	      </links>
+  	  </application>      
+    </application-defs>
+       
+    <!-- code permissions required for proper operation -->
+    <permissions>
+      <permission type="persist" name="Content" actions="create,modify,delete"/>
+      <permission type="attribute" name="user.authinfo" actions="get,set"/>
+      <permission type="attribute" name="user.personalinfo" actions="get,set"/>
+    </permissions>
+  </plugin>
+
+</manifest>

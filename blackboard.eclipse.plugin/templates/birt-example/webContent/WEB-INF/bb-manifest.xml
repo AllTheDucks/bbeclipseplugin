@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<manifest>
+	<!-- core extension information -->
+    <plugin>
+        <name value= "TODO Enter Building Block Name Here"/>
+        <handle value= "${handle}"/>
+        <description value= "TODO Description of Building Block"/>
+        <version value= "1.0.0"/>
+        <requires>
+            <bbversion value="9.1"/>
+        </requires>
+        <vendor>
+            <id value="${vendor}"/>
+            <name value="TODO Enter Institution Name Here"/>
+            <url value="http://www.myinstitution.edu/" />
+            <description value="TODO Description of Institution" />
+        </vendor>
+		<http-actions />
+		<reports>
+			<report-package file-name="reports.zip" />
+		</reports>
+		<permissions>
+			<permission type="java.util.PropertyPermission" name="*" actions="read,write" />
+			<permission type="java.net.SocketPermission" name="*" actions="connect" />
+			<permission type="attribute" name="user.personalinfo" actions="get" />
+			<permission type="attribute" name="user.authinfo" actions="get" />
+			<permission type="attribute" name="user.cardnumber" actions="get" />
+			<permission type="attribute" name="Group" actions="get" />
+			<permission type="attribute" name="GroupMembership" actions="get" />
+			<permission type="persist" name="Content" actions="create,modify,delete" />
+			<permission type="persist" name="ContentHandler" actions="create,modify,delete" />
+		</permissions>
+	</plugin>
+</manifest>

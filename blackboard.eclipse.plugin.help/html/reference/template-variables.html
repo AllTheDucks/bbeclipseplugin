@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="../css/blackboard-help.css" media="screen"/>
+
+<title>Insert title here</title>
+<style type="text/css">
+body {
+	font-family: sans-serif;
+}
+dt {
+	font-weight: bold;
+}
+dd {
+	margin-bottom: 1em;
+}
+</style>
+</head>
+<body>
+	<h1>Template Variables</h1>
+<p>Template variables can be used in blackboard content to pass context information to 
+your components.</p>
+<p>Template variables are used by placing the variable name between matching <b>@X@</b> marks. 
+eg. <b>@X@course.pk_string@X@</b></p>
+<p>For example, you can pass a user's PK value from a context menu item in the User Search results, with the following 
+link.</p>
+<pre class="code-box">
+&lt;link&gt;
+   &lt;type value="gradebook_extension" /&gt;
+   &lt;name value="Reconcile Engagement Dates" /&gt;
+   &lt;url value="CopyEngagementDates.action?course_id=<b>@X@course.pk_string@X@</b>" /&gt;
+   &lt;description value="A tool to set engagement dates from an assessment column in the gradebook" /&gt;
+&lt;/link&gt;
+</pre>
+ <table>
+    <tr><th>Variable</th><th>Description</th><th>Example</th></tr>
+<tr>
+<td>course.pk_string</td>
+<td>The internal identifier for a course. Usually passed in the "course_id" URL parameter.</td>
+<td>_45_1</td>
+</tr>
+<td>course.batch_uid</td>
+<td>The external identifier for a course. Accepts multibyte characters.</td>
+<td>ABC123ABC</td></tr>
+<tr><td>course.id</td>
+<td>The simple abbreviation for a course.</td>
+<td>BIO101</td></tr>
+<tr><td>course.role</td>
+<td>A user's role in the current course or organization. Accepts multibyte characters.</td>
+<td>student</td></tr>
+<tr><td>course.url</td>
+<td>The base URL for all files referenced in the course.</td>
+<td>/courses/1/BIO101/</td></tr>
+<tr><td>content.id</td>
+<td>The internal identifier for content in a course.</td>
+<td>_23_1</td></tr>
+<tr><td>content.url</td>
+<td>The base URL for files associated with a given piece of content.</td>
+<td>/courses/1/BOB101/content/_x_y</td></tr>
+<tr><td>system.site_id</td>
+<td>The host name of the current virtual installation.</td>
+<td>bb_bb60</td></tr>
+<tr><td>request.id</td>
+<td>Unique identifier for the current session formatted as a 32 character hex digit string based on the time of access. Guaranteed to be unique across the system.</td>
+<td><b>35853280-A77A-11D8-83D5-9CAA2FE644E1</b></td></tr>
+<tr><td>request.return</td>
+<td>The first non-null value of:<br>
+<ul><li>The &quot;return&quot; parameter in the query string</li>
+<li>The &quot;return&quot; parameter in the URL</li>
+<li>The URL of the referring page.</li></ul></td>
+<td>http:/localhost/webapps/bbgs-bbqa-context-bb_bb60/tool_1/tool.jsp?course_id=_2_1</td></tr>
+<tr><td>session.id</td>
+<td>Hexadecimal string representing the session identifier for the current session.</td>
+<td>8f14e45fceea167a5a36dedd4bea2543</td></tr>
+<tr><td>user.batch_uid</td>
+<td>The external identifier for a user. Accepts multibyte characters.</td>
+<td>123-45-6789</td></tr>
+<tr><td>user.id</td>
+<td>The current Username. Accepts multibyte characters.</td>
+<td>jsmith</td></tr>
+<tr><td>user.role</td>
+<td>The current user's System Role.</td>
+<td><pre>System Roles
+C- Course Administrator
+U- Guest
+N- None
+O- Observer
+Y- Community Administrator
+R- Support
+Z- System Admin
+H- System Support
+A- User Administrator</pre></td></tr>
+<tr><td>user.institution_role</td>
+<td>The Role ID of the current user's Primary Institution Role. Accepts multibyte characters.</td>
+<td>student</td></tr>
+<tr><td>user.primary_institution_role</td>
+<td>The Role ID of the current user's Primary Institution Role (same as institution_role). Accepts multibyte characters.</td>
+<td>student</td></tr>
+<tr><td>user.secondary_institution_role</td>
+<td>A comma-delimited list of all of the user's secondary Role IDs.</td>
+<td>student,faculty</td></tr>
+<tr><td>membership.role</td>
+<td>A user's role in the current course or organization. Accepts multibyte characters.</td>
+<td><pre>Course/Organization Roles
+B- Course Builder/Organization Builder
+G- Grader/Grader
+U- Guest/Guest
+P- Instructor/Leader
+S- Student/Participant
+T- Teacher's Assistant/Assistant</pre></td>
+<tr><td>target_user.pk_string</td>
+<td>The pk string for the current user in a user list. This can be used for inserting a value
+in a <b>user_list_context_menu</b> link.</td>
+<td>_48_1</td></tr>
+<tr><td>target_user.username</td>
+<td>The username for the current user in a user list.  This can be used for inserting a value
+in a <b>user_list_context_menu</b> link.</td>
+<td>jsmith</td>
+</tr>
+</table> 
+</body>
+</html>

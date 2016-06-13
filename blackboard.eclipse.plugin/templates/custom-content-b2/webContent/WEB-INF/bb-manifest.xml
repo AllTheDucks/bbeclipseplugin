@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<manifest>
+  <!-- core extension information -->
+    <plugin>
+        <name value= "TODO Enter Building Block Name Here"/>
+        <handle value= "${handle}"/>
+        <description value= "TODO Description of Building Block"/>
+        <version value= "1.0.0"/>
+        <requires>
+            <bbversion value="9.0"/>
+        </requires>
+        <vendor>
+            <id value="${vendor}"/>
+            <name value="TODO Enter Institution Name Here"/>
+            <url value="http://www.myinstitution.edu/" />
+            <description value="TODO Description of Institution" />
+        </vendor>
+        
+<!--    These two JSPs are displayed when the "remove" and "properties" buttons --> 
+<!--	are pressed on the Building Blocks administration page. 				-->
+<!--    <http-actions>
+            <config value="admin/configure.jsp"/>
+            <remove value="admin/remove.jsp"/>
+        </http-actions>
+ -->    
+        <application-defs>
+        </application-defs>
+
+<!-- Portal Module Definitions -->
+        <module-defs>
+        </module-defs>
+<!--  Custom Content Types -->
+    <content-handlers>
+      <content-handler>
+        <name value="My Custom Content Typec"/>
+        <handle value= "resource/eg-content-type"/>
+        <http-actions>
+          <create value="content/create.jsp"/>
+          <modify value="content/modify.jsp"/>
+          <remove value="content/remove.jsp"/>
+          <can-copy value="false"/>
+        </http-actions>
+        <icons>
+          <toolbar value="images/example.gif"/>
+          <listitem value="images/example.gif"/>
+        </icons>
+      </content-handler>
+    </content-handlers>
+
+<!-- code permissions required for proper operation -->
+        <permissions>
+            <permission type="attribute" name="user.authinfo" actions="get"/>
+            <permission type="attribute" name="user.personalinfo" actions="get,set"/>
+        </permissions>
+
+    </plugin>
+
+</manifest>

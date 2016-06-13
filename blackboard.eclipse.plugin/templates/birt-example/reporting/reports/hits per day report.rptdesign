@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.17" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 2.5.2.v20100208 Build &lt;2.5.2.v20100210-0630></property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">72</property>
+    <list-property name="libraries">
+        <structure>
+            <property name="fileName">blackboard.common/resources/common.rptlibrary</property>
+            <property name="namespace">common</property>
+        </structure>
+    </list-property>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="bb_common_data_source" id="995" extends="common.bb_common_data_source"/>
+        <script-data-source name="scriptedDataSource" id="1582"/>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="BBLEARN_data_source" id="1587" extends="common.BBLEARN_data_source"/>
+    </data-sources>
+
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Data Set" id="8">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">DAYHIT</property>
+                    <text-property name="displayName">DAYHIT</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">COUNT(*)</property>
+                    <text-property name="displayName">COUNT(*)</text-property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">DAYHIT</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">COUNT(*)</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                </list-property>
+            </structure>
+                <list-property name="libraries">
+        <structure>
+            <property name="fileName">blackboard.common/resources/common.rptlibrary</property>
+            <property name="namespace">common</property>
+        </structure>
+    </list-property>
+			<property name="dataSource">BBLEARN_data_source</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">DAYHIT</property>
+                    <property name="nativeName">DAYHIT</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">COUNT(*)</property>
+                    <property name="nativeName">COUNT(*)</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select to_char(timestamp, 'YYYY-MM-DD') as DayHit, count(*)
+from ACTIVITY_ACCUMULATOR
+group by to_char(timestamp, 'YYYY-MM-DD')
+ORDER BY DayHit]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <styles>
+        <style name="report" id="4">
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">10pt</property>
+        </style>
+        <style name="crosstab-cell" id="5">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="crosstab" id="6">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <table id="38">
+            <property name="dataSet">Data Set</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">DAYHIT</property>
+                    <text-property name="displayName">DAYHIT</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["DAYHIT"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">COUNT(*)</property>
+                    <text-property name="displayName">COUNT(*)</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["COUNT(*)"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+            </list-property>
+            <column id="52"/>
+            <column id="53"/>
+            <header>
+                <row id="39">
+                    <cell id="40">
+                        <label name="Date" id="41">
+                            <text-property name="text">Date</text-property>
+                        </label>
+                    </cell>
+                    <cell id="42">
+                        <label name="Total Hits" id="43">
+                            <text-property name="text">Number of Hits</text-property>
+                        </label>
+                    </cell>
+                </row>
+            </header>
+            <detail>
+                <row id="44">
+                    <list-property name="highlightRules">
+                        <structure>
+                            <property name="operator">top-n</property>
+                            <property name="backgroundColor">#FF0000</property>
+                            <property name="fontWeight">bold</property>
+                            <property name="textLineThrough">none</property>
+                            <expression name="testExpr" type="javascript">row["COUNT(*)"]</expression>
+                            <simple-property-list name="value1">
+                                <value type="javascript">10</value>
+                            </simple-property-list>
+                        </structure>
+                    </list-property>
+                    <cell id="45">
+                        <data id="46">
+                            <property name="resultSetColumn">DAYHIT</property>
+                        </data>
+                    </cell>
+                    <cell id="47">
+                        <data id="48">
+                            <property name="resultSetColumn">COUNT(*)</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+            <footer>
+                <row id="49">
+                    <cell id="50"/>
+                    <cell id="51"/>
+                </row>
+            </footer>
+        </table>
+    </body>
+</report>

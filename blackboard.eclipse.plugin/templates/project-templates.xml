@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+	<template id="course-tool-b2">
+		<name>Course Tool Building Block skeleton. (BB v9.1+)</name>
+		<description>A Basic building block skeleton with the minimum files needed 
+to successfully deploy to Blackboard.</description>
+	</template>
+	<template id="user-tool-b2">
+		<name>User Tool Building Block skeleton. (BB v9.1+)</name>
+		<description>A Basic building block skeleton with the minimum files needed 
+to successfully deploy to Blackboard.</description>
+	</template>
+	<template id="system-tool-b2">
+		<name>System Tool Building Block skeleton. (BB v9.1+)</name>
+		<description>A Basic building block skeleton with the minimum files needed 
+to successfully deploy to Blackboard.</description>
+	</template>
+	<template id="custom-content-b2">
+		<name>Custom Content Building Block skeleton. (BB v9.1+)</name>
+		<description>A Basic building block skeleton with the minimum files needed 
+to successfully deploy to Blackboard.</description>
+	</template>
+	<template id="portal-module-b2">
+		<name>Portal Module Building Block skeleton. (BB v9.1+)</name>
+		<description>A Basic building block skeleton with the minimum files needed 
+to successfully deploy to Blackboard.</description>
+	</template>
+	<template id="stripes-b2-bb9">
+		<name>Stripes Framework Building Block Skeleton. (BB v9.0+)</name>
+		<description>A building block skeleton configured to use the Stripes MVC framework.</description>
+	</template>
+ 	<template id="birt-example">
+		<name>BIRT Report Sample (BB v9.1+)</name>
+		<description>This Building block gives an example of how to use a BIRT report in 
+		Blackboard and deploy it via a building block.</description>
+	</template> 
+ 	<template id="B2-StarterKit">
+		<name>B2 Starter Kit Showcase Building Block (BB v9.1+)</name>
+		<description>This Building block gives examples of how to use many parts of Blackboard.
+		Created by Michael Fudge.</description>
+	</template> 
+	
+	<!-- <template id="instructor-tool-b2">
+		<name>Instructor Tool Building Block skeleton. (BB v9.1+)</name>
+		<description>A Basic building block skeleton with the minimum files needed 
+to successfully deploy to Blackboard.</description>
+	</template> 
+ 	<template id="simple-b2">
+		<name>Basic Building Block skeleton. (BB v9.1+)</name>
+		<description>A Basic building block skeleton with the minimum files needed 
+to successfully deploy to Blackboard.</description>
+	</template>
+	<template id="simple-b2-bb9">
+		<name>Basic Building Block skeleton. (BB v9.0+)</name>
+		<description>A Basic building block skeleton with the minimum files needed 
+to successfully deploy to Blackboard.</description>
+	</template>
+	<template id="spring-b2-bb9">
+		<name>A Building Block using the Spring framework. (BB v9.0+)</name>
+		<description>A building block skeleton configured to use the Spring MVC framework</description>
+	</template>
+	<template id="struts-b2-bb9">
+		<name>A Building Block using the Struts framework. (BB v9.0+)</name>
+		<description>A building block skeleton configured to use the Struts MVC framework</description>
+	</template> -->
+	<!-- <template id="bb9-showcase">
+		<name>Blackboard 9 Showcase (BB v9.0+)</name>
+		<description>A building block to demonstrate the usage of the JSP tags,
+		notifications, link types, etc.</description>
+	</template>
+ 	<template id="rendering-hook">
+		<name>Rendering Hook Sample (BB v9.1+)</name>
+		<description>This Building block gives examples of how to use Blackboard Extensions
+		to programatically insert content into Blackboard system pages</description>
+	</template> 
+ 	<template id="db-objects-example">
+		<name>DB Objects Sample (BB v9.1+)</name>
+		<description>This Building block gives an example of how to configure custom
+		database objects in a building block.</description>
+	</template> --> 
+</templates>

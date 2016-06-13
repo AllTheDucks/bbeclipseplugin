@@ -1,0 +1,302 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="../css/blackboard-help.css"
+	media="screen" />
+<title>bb-manifest.xml Reference</title>
+</head>
+
+
+<body>
+	<h1>bb-manifest.xml Reference</h1>
+	<p>This is the reference for the bb-manifest.xml file. For more information, you can 
+	also refer to the blackboard documentation.
+	<ul>
+	   <li><a href="https://behind.blackboard.com/s/faculty/refcenter/docs/details.Bb?DocumentID=3391&pid=100&rid=5767&dt=">Building Block Developers Guide for 9.0</a></li>
+    	<li><a href="https://behind.blackboard.com/s/faculty/refcenter/docs/details.Bb?DocumentID=3394&pid=100&rid=5767&dt=">Module Developers Guide for 9.0</a></li>
+	</ul>
+	</p>
+	<pre class="code-box">
+&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;
+&lt;manifest&gt;
+
+    &lt;plugin&gt;
+
+        <a href="#general-settings">&lt;name/&gt;</a>
+        <a href="#general-settings">&lt;handle/&gt;</a>
+        <a href="#general-settings">&lt;description/&gt;</a>
+        <a href="#general-settings">&lt;version/&gt;</a>
+        <a href="#general-settings">&lt;requires/&gt;</a>
+        <a href="#general-settings">&lt;vendor/&gt;</a>
+
+        <a href="#application-defs">&lt;application-defs/&gt;</a>
+
+        <a href="#module-defs">&lt;module-defs/&gt;</a>
+
+        <a href="#content-handlers">&lt;content-handlers/&gt;</a>
+
+        <a href="#extension-defs">&lt;extension-defs/&gt;</a>
+
+        <a href="#reports">&lt;reports/&gt;</a>
+
+        <a href="#schema-dirs">&lt;schema-dirs/&gt;</a>
+
+        <a href="#permissions">&lt;permissions/&gt;</a>
+
+    &lt;/plugin&gt;
+
+&lt;/manifest&gt;
+</pre>
+
+	<h2><a name="general-settings">General Settings</a></h2>
+	<pre class="code-box">
+&lt;name value="Tag Showcase"/&gt;
+</pre>
+	The human readable name of your Building block. This will be displayed on the Manage building blocks
+	page, so don't make it too long.
+	<pre class="code-box">
+&lt;handle value="tag-showcase"/&gt;
+</pre>
+	The internal system identifier for your building block. The combination
+	of "handle" and "vendor Id" must be unique in your blackboard
+	installation.
+	<pre class="code-box">
+&lt;description value= "Description of Building Block"/&gt;
+</pre>
+	A Human readable description of your Building block.
+	<pre class="code-box">
+&lt;version value= "1.0"/&gt;
+</pre>
+	The version of your building block. You can assign whatever number you
+	want to this.
+	<pre class="code-box">
+&lt;requires&gt;
+    &lt;bbversion value="9.0"/&gt;
+&lt;/requires&gt;
+</pre>
+	The version of blackboard that your building block requires. The
+	building block will not install on versions of blackboard lower than
+	this.
+	<h3>Vendor Section</h3>
+	<pre class="code-box">
+&lt;vendor&gt;
+    &lt;id value="qut"/&gt;
+    &lt;name value="Queensland University of Technology"/&gt;
+    &lt;url value="http://www.qut.edu.au/" /&gt;
+    &lt;description value="Queensland University of Technology, in Brisbane Australia" /&gt;
+&lt;/vendor&gt;
+</pre>
+	<ul>
+		<li><b>id</b> the internal system ID of your institution. the
+			comnination of vendor ID and building block handle must be unique in
+			your blackboard installation. <b>Max length, 4 chars.</b></li>
+		<li><b>name</b> the human readable name of your institution</li>
+		<li><b>url</b> the url of your institutions web site</li>
+		<li><b>description</b> a human readable description of your
+			institution. This is often set to the same value as the name.
+	</ul>
+
+	<h2><a name="application-defs">Application Definitions</a></h2>
+	<pre class="code-box">
+&lt;application-defs&gt;
+    &lt;application handle="bb-tag-showcase" type="shared"
+        use-ssl="false" name="Tag Showcase Application" can-allow-guest="false"&gt;
+        &lt;description lang="en_US"&gt;An example showcasing the bbNG tags&lt;/description&gt;
+        &lt;links&gt;
+            &lt;link&gt;
+                &lt;type value="course_tool" /&gt;
+                &lt;handle value="landing_page" /&gt;
+                &lt;name value="bbNG Tag Showcase" /&gt;
+                &lt;url value="index.jsp" /&gt;
+                &lt;description value="Examples of how to use the bbNG tags" /&gt;
+            &lt;/link&gt;
+        &lt;/links&gt;
+    &lt;/application&gt;
+&lt;/application-defs&gt;
+</pre>
+
+	Application definitions are the container for any links that you wish
+	to create in the blackboard interface.
+	<pre class="code-box">
+&lt;application handle="bb-tag-showcase" 
+        name="Tag Showcase Application" 
+        can-allow-guest="false"
+        use-ssl="false"
+        type="shared"
+        is-course-tool="true"
+        is-group-tool="true"
+        is-org-tool="true"
+        is-sys-tool="true"&gt;	
+</pre>
+	<ul>
+		<li><b>handle attribute</b> the internal handle for your application</li>
+		<li><b>name attribute</b> a human readable name for the application</li>
+		<li><b>use-ssl attribute</b> Whether this application needs to use SSL or not</li>
+        <li><b>can-allow-guest attribute</b> whether users in the "guest" role can use this tool</li>
+    </ul>
+    <b>Application Type:</b> The application type can be specified one of two ways. Either in the "type" attribute
+    or by setting the individual "is-xxx-tool" boolean values.
+    If the "type" attribute is set, the boolean values will be ignored.<br>
+    <b>Link Visibility:</b> If a link type doesn't match the application type, then it won't be displayed in Blackboard. E.g. If you 
+    add a "course_tool" link to an application that has <code>type="system"</code> or <code>is-course-tool="false"</code>, then
+    your link will not be displayed in Blackboard.
+    <ul>        
+        <li><b>type attribute</b> Can be one of <b>shared</b>, <b>course</b>, <b>course_only</b>, or <b>system</b></li>
+        <li><b>is-course-tool attribute</b> is this a course tool</li>
+        <li><b>is-group-tool attribute</b> is this a group tool</li>
+        <li><b>is-org-tool attribute</b> is this an organisation tool</li>
+        <li><b>is-sys-tool attribute</b> is this a system tool</li>
+	</ul>
+	
+<pre class="code-box">
+&lt;link&gt;
+    &lt;type value="course_tool" /&gt;
+    &lt;name value="bbNG Tag Showcase" /&gt;
+    &lt;url value="index.jsp" /&gt;
+    &lt;description value="Examples of how to use the bbNG tags" /&gt;
+    &lt;handle value="landing_page" /&gt;
+&lt;/link&gt;
+</pre>	
+Links will appear in the Blackboard UI. In the example above. A link with the text "bbNG Tag Showcase" 
+will appear in the Course control panel menu, under the "Course Tools" heading.
+    <ul>        
+        <li><b>type</b> Determines where in the Blackboard UI the link will appear. 
+        See the <a href="link-types.html">Link Types reference</a> for details of the 
+        various link types</li>
+        <li><b>name</b> The text for the link</li>
+        <li><b>url</b> the URL of the link. Relative to the root of the web app.</li>
+        <li><b>description</b> A human readable description of the link.</li>
+        <li><b>handle</b> An optional value that is used in the construction of a
+        nav_handle which is put in the NAVIGATION_ITEMS table.</li>
+    </ul>
+    Template variables such as <b>@X@course.course_id@X@</b> may be used to pass values through application links
+    as well as in various course content items.<br>
+    See the <a href="template-variables.html">Template Variables</a> reference for more information.
+    
+   
+    
+	<h2><a name="module-defs">Module Definitions</a></h2>
+    The module-defs element can contain three other elements, <code>&lt;module-type&gt;</code>, 
+    <code>&lt;module&gt;</code>, and <code>&lt;rss-channel&gt;</code>
+	<pre class="code-box">
+&lt;module-defs&gt;
+    &lt;module-type ext-ref="smpl-module" title="Sample Plug-in Module Type" uicreatable="true"&gt;
+        &lt;jsp-dir&gt;module&lt;/jsp-dir&gt;
+        &lt;jsp&gt;
+            &lt;view&gt;view.jsp&lt;/view&gt;
+            &lt;admin&gt;admin.jsp&lt;/admin&gt;
+        &lt;/jsp&gt;
+    &lt;/module-type&gt;
+&lt;/module-defs&gt;	
+	</pre>
+	<h2><a name="content-handlers">content-handler/Content Types</a></h2>
+	<pre class="code-box">
+&lt;content-handlers&gt;
+    &lt;content-handler&gt;
+        &lt;name value="content-handler.handle"/&gt;
+        &lt;handle value= "resource/x-smpl-type1"/&gt;
+        &lt;http-actions&gt;
+            &lt;create value="ch1/create.jsp"/&gt;
+            &lt;modify value="ch1/modify.jsp"/&gt;
+            &lt;remove value="ch1/remove.jsp"/&gt;
+   <!--          <view value="do/archive"/>
+         <cpview value="do/folderView"/>
+         <create value="do/editArchive"/>
+         <modify value="do/editArchive"/>
+         <remove value="do/deleteArchive"/>
+         <can-copy value="false"/> -->
+        &lt;/http-actions&gt;
+        &lt;icons&gt;
+            &lt;toolbar value="/images/add_ch1.gif"/&gt;
+            &lt;listitem value="/images/icon.gif"/&gt;
+        &lt;/icons&gt;
+        &lt;types&gt;
+            &lt;type&gt;
+                &lt;action-type value="newPage"&gt;
+            &lt;/type&gt;
+        &lt;/types&gt;
+    &lt;/content-handler&gt;
+&lt;/content-handlers&gt;
+	</pre>
+	none, build, plan, evaluate, collaborate, mashup, more, createItem, createMedia, createOther, newPage, textbook, image, video, audio, file
+	
+	<h2><a name="reports">Reports</a></h2>
+	<pre class="code-box">
+&lt;reports&gt;
+    &lt;report-package file-name="reports.zip" /&gt;
+&lt;/reports&gt;
+</pre>
+	The file referenced in "report-package" is relative to
+	<code>/WEB-INF/reports/</code>. For example, the path of the file in the example above would be:
+	<code>/WEB-INF/reports/reports.zip</code>.
+	<br> The report-package contains one or more BIRT reports. For
+	more information, look at the sample BIRT report building block, or
+	<a href="http://www.eclipse.org/birt/phoenix/">refer to the BIRT website.</a>
+
+    <h2><a name="schema-dirs">schema-dirs/Database Extensions</a></h2>
+    <pre class="code-box">
+&lt;schema-dirs&gt;
+  &lt;schema-dir dir-name="test"/&gt;
+  &lt;schema-dir dir-name="statstest" database="stats"/&gt;
+&lt;/schema-dirs&gt;
+</pre>
+The schema-dirs element allows your building block to create new database objects, including tables, 
+triggers, sequences, etc. 
+For more information see: 
+<ul>
+<li><a href="http://www.edugarage.com/display/BBDN/Creating+Database+Objects+with+Building+Blocks">Creating Database Objects with Building Blocks</a></li>
+<li>and <a href="http://www.edugarage.com/display/BBDN/Schema+Definitions">Schema Definitions</a> on Edugarage.</li>
+</ul>
+    
+	<h2><a name="extension-defs">Extensions</a></h2>
+	<pre class="code-box">
+&lt;extension-defs&gt;
+    &lt;definition namespace="blackboard.platform"&gt;
+        &lt;extension id="my-extension"
+              point="blackboard.platform.renderingHook"
+              class="au.edu.swinburne.bb.studentview.hooks.TeacherViewRenderingHook"
+              singleton="true" /&gt;
+    &lt;/definition&gt;
+    &lt;extension id="MyAnnouncementHandler"
+            point="blackboard.platform.announcementEventHandler"
+            class="nl.rug.blackboard.AnnouncementHandler"
+            singleton="true" /&gt;
+    &lt;/definition&gt;
+&lt;/extension-defs&gt;
+	</pre>
+	When using Extensions, you must also add the following element to you bb-manifest.xml file
+	<code>&lt;webapp-type value="javaext" /&gt;</code>, as in the following example.
+	<pre class="code-box">
+	&lt;handle value="studentview"/&gt;
+	&lt;description value="Allows instructors to view their course as a student"/&gt;
+	<b style="font-weight: bolder;color: blue;">&lt;webapp-type value="javaext" /&gt;</b>
+	&lt;version value="0.1"/&gt;
+	&lt;requires&gt;
+	    &lt;bbversion value="9.0.0"/&gt;
+	&lt;/requires&gt;
+	</pre>
+	The class referred to in the <b>class</b> attribute of the <b>extension</b> element
+	must implement the appropriate extension interface. 
+	in the example above, these are
+	<ul>
+	<li><b>blackboard.servlet.renderinghook.RenderingHook</b></li>
+	<li>and, <b>blackboard.persist.announcement.impl.AnnouncementEventHandler</b></li>
+	</ul> 
+	 
+	 
+	
+    <h2><a name="permissions">permissions</a></h2>
+    <pre class="code-box">
+&lt;permissions&gt;
+    &lt;permission type="attribute" name="user.personalinfo" actions="get" /&gt;
+    &lt;permission type="attribute" name="user.authinfo" actions="get" /&gt;
+    &lt;permission type="attribute" name="user.cardnumber" actions="get" /&gt;
+    &lt;permission type="attribute" name="Group" actions="get" /&gt;
+    &lt;permission type="attribute" name="GroupMembership" actions="get" /&gt;
+    &lt;permission type="persist" name="Content" actions="create,modify,delete" /&gt;
+    &lt;permission type="persist" name="ContentHandler" actions="create,modify,delete" /&gt;
+&lt;/permissions&gt;
+    </pre>	
+</body>
+</html>

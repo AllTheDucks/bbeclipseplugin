@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Blackboard Stripes Utilities" default="build" basedir=".">
+
+	<property name="package.version" value="1.0"/>
+	<property name="package.src-name" value="${basedir}/bb-stripes-utils-${package.version}-sources.jar"/>
+	<property name="package.bin-name" value="${basedir}/bb-stripes-utils-${package.version}.jar"/>
+	
+	<target name="clean">
+		<delete dir="${basedir}/build"></delete>
+		<delete file="${package.bin-name}"/>
+		<delete file="${package.src-name}"/>
+	</target>
+	
+	<target name="build">
+		<mkdir dir="${basedir}/build"/>
+		<javac srcdir="src"
+         destdir="build"
+         classpath="lib/servlet-api-2.4.jar;lib/stripes-1.5.6.jar;${user.home}/bb-sdk/blackboard-9.1SP5/bb-platform.jar"
+         debug="on"	/>
+		<jar destfile="${package.bin-name}">
+			<fileset dir="${basedir}/build" includes="**/*.class"></fileset>
+		</jar>
+		<jar destfile="${package.src-name}">
+			<fileset dir="${basedir}/src" includes="**/*.java"></fileset>
+		</jar>
+	</target>
+	
+</project>

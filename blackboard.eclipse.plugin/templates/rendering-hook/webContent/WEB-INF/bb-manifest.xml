@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<manifest>
+  <!-- core extension information -->
+  <plugin>
+    <name value="Rendering Hook Test"/>
+    <handle value="rendering-hook-test"/>
+    <description value= "Sample B2 to test the rendering hook extension point"/>
+    <default-locale value="en_US"/>
+    <webapp-type value="javaext"/>
+    <version value= "1.0.0.0"/>
+    <requires>
+      <bbversion value="9.1"/>
+    </requires>
+    <vendor>
+      <id value="bb"/>
+      <name value="Blackboard Inc."/>
+      <url value="http://www.blackboard.com/" />
+      <description value="Blackboard Learn" />
+    </vendor>
+    
+    <http-actions>
+    </http-actions>
+    
+    <extension-defs>
+      <definition namespace="blackboard.platform">
+         <!-- Rendering hook test -->     
+         <extension id="topFrameRenderingHookTest"
+           point="blackboard.platform.renderingHook"
+           class="blackboard.testing.renderinghook.TopFrameRenderingHookTest"
+           singleton="true" />
+           
+         <extension id="learningSystemPageHookTest"
+           point="blackboard.platform.renderingHook"
+           class="blackboard.testing.renderinghook.LearningSystemPageHookTest"
+           singleton="true" />  
+           
+         <extension id="editModeViewToggleHookTest"
+           point="blackboard.platform.renderingHook"
+           class="blackboard.testing.renderinghook.EditModeViewToggleTest"
+           singleton="true" />                        
+      </definition>
+
+    </extension-defs>
+
+    <!-- code permissions required for proper operation -->
+    <permissions>
+
+    </permissions>
+  </plugin>
+
+</manifest>

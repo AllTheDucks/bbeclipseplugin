@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="css/blackboard-help.css" media="screen"/>
+<title>Insert title here</title>
+<style type="text/css">
+body {
+	font-family: sans-serif;
+}
+dt {
+	font-weight: bold;
+}
+dd {
+	margin-bottom: 1em;
+}
+</style>
+</head>
+<body>
+	<h2>New Building Block Wizard</h2>
+	This wizard enables you to create a new Building Block from a number of template and sample
+	projects. 
+	The Purpose of the fields is as follows:
+	<p><b>Vendor ID</b> This is an internal ID.  Together with the building block "handle" it uniquely identifies
+	your plugin within blackboard.  Usually it is the initials or abbreviation of your institution's name.<br>
+	e.g. mit, qut, ucla, etc.  Maximum Length 4 Characters.</p>
+	<p><b>Plugin Handle</b> Stored in bb-manifest.xml in the <b>handle</b> element. The internal name of your
+	building block, e.g. video-player, sms-tool, feedback-form, etc, etc. Maximum Length 32 Characters.</p>
+	<p><b>Base Package</b> The base java package for java source files in this project. e.g. <b>edu.ucla.mycustomtool</b></p>
+	<p><b>Development Server</b> The development server running blackboard. You should have the "Starting Block"
+	Building block running on this server for remote deployment to work.</p>
+	<p><b>Target Blackboard Version</b> The blackboard API version that your code will be compiled against.</p>
+	<p><b>Project Template</b> The template which your project will be based on.</p>
+</body>
+</html>

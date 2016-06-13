@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="${vendor}-${handle}" default="deploy-b2" basedir=".">
+	<description>TODO Description For My Project</description>
+	
+	<property name="build.dir" value="${r"${basedir}/build/"}"/>
+	<property name="report.package.name" value="${r"${build.dir}reports.zip"}"/>
+	<property name="b2.package.name" value="${r"${basedir}/${ant.project.name}.war"}"/>
+
+	<target name="deploy-b2" depends="package-war">
+		<taskdef name="b2deploy" classpath="${r"${basedir}/lib/b2deploy-task.jar"}" classname="org.oscelot.ant.B2DeployTask" />
+		<b2deploy localfilepath="${r"${b2.package.name}"}" host="bb9dev.its.swin.edu.au" courseorgavailable="true" />
+	</target>
+
+	<target name="package-reports">
+		<mkdir dir="${r"${basedir}/build"}"/>
+		<zip destfile="${r"${basedir}/build/reports.zip"}" basedir="${r"${basedir}/reporting"}">
+		</zip>
+	</target>
+	
+	<target name="package-war" depends="package-reports">
+		<war destfile="${r"${b2.package.name}"}" basedir="webContent">
+			<classes dir="bin"></classes>
+			<zipfileset file="${r"${report.package.name}"}" prefix="WEB-INF/reports"/>
+		</war>
+	</target>
+	
+    <target name="check-compatibility">
+        <taskdef name="fibbba" classname="com.blackboard.fibbba.CheckFibbbaTask" classpath="${r"${basedir}"}/lib/fibbba-ant.jar" />
+        <fibbba srcfile="${r"${b2.package.name}"}.war" email="youremailaddress@gmail.com"/>
+    </target>
+
+	<target name="clean">
+		<delete dir="${r"${build.dir}"}"/>
+		<delete file="${r"${b2.package.name}"}"/>
+	</target>
+</project>

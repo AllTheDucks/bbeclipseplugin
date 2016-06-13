@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/blackboard.eclipse.plugin.feature_1.0.16.jar" id="blackboard.eclipse.plugin.feature" version="1.0.16">
+      <category name="Blackboard"/>
+   </feature>
+   <category-def name="Blackboard" label="Blackboard"/>
+</site>

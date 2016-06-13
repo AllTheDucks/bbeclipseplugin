@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="../css/blackboard-help.css" media="screen"/>
+<title>bbNG Pages</title>
+</head>
+<body>
+<h1>bbNG Pages</h1>
+
+<h2>Page Scaffolding Tags</h2>
+
+<a name="learningSystemPage"><h3>Learning System Page Tag</h3></a>
+<pre>&lt;bbNG:learningSystemPage&gt;</pre>
+<p>The learningSystemPage tag is used for generating pages that will be displayed in a course site.
+As long as the course_id parameter is passed to this page, it automatically adds the course navigation menu on the left, and breadcrumbs for the course home page.</p>
+
+<a name="genericPage"><h3>Generic Page Tag</h3></a>
+<pre>&lt;bbNG:genericPage&gt;</pre>
+<p>The Generic page contains no automatically added navigation. You can customise it as you wish.
+You may for instance, wish to use this page for Building Block settings page (via the system admin panel), 
+or other tools where you don't wish the course navigation to be displayed.</p>
+<a name="adminConsolePage"><h3>Admin Console Page</h3></a>
+<pre>&lt;bbNG:adminConsolePage&gt;</pre>
+<p></p>
+<a name="landingPage"><h3>Landing Page Tag</h3></a>
+<pre>&lt;bbNG:landingPage&gt;</pre>
+<p>The Landing page presents a list of "Caret" items for navigation to other modules in the applciation.<br>
+Unfortunately, this tag relies on navigation item IDs, which are stored in the BBLEARN.NAVIGATION_ITEM table.
+and building block developers can't easily manipulate these. For reference, the following code is an example
+of how the landing page tag is used.  It <b>must</b> be used inside a learningSystem, or generic page tag.
+<pre class="code-box">
+&lt;bbNG:landingPage&gt;
+	&lt;bbNG:landingPageColumn&gt;
+		&lt;bbNG:landingPageSection 
+			title="Section Title"
+			instructions="Section Instructions"&gt;
+			&lt;bbNG:landingPageCaret&gt;
+				&lt;bbNG:landingPageCaretItem navItem="${navitem1}" /&gt;
+				&lt;bbNG:landingPageCaretItem navItem="${navitem1}" /&gt;
+			&lt;/bbNG:landingPageCaret&gt;
+		&lt;/bbNG:landingPageSection&gt;
+	&lt;/bbNG:landingPageColumn&gt;
+&lt;/bbNG:landingPage&gt;
+</pre>
+</p>
+
+<h2>Logical Page Types</h2>
+<p>The page tags described above, are used to implement a number of "logical" page types in blackboard.
+These are</p>
+
+<h3>Data Collection Page</h3>
+<p>A data collection page may be implemented using any of the bbNG page tags. A data collection page
+uses the <code>&lt;bbNG:dataCollection&gt;</code> tag, in conjuction with <code>&lt;bbNG:step&gt;</code> 
+and <code>&lt;bbNG:dataElement&gt;</code> tags. The following code is an example of a Data Collection page
+using a Learning System Page   
+<pre class="code-box">&lt;bbNG:form&gt;
+	&lt;bbNG:dataCollection&gt;
+		&lt;bbNG:step title="Step One"&gt;
+			&lt;bbNG:dataElement&gt;
+			&lt;/bbNG:dataElement&gt;
+		&lt;/bbNG:step&gt;
+		&lt;bbNG:step title="Step Two"&gt;
+			&lt;bbNG:dataElement&gt;
+			&lt;/bbNG:dataElement&gt;
+		&lt;/bbNG:step&gt;
+		&lt;bbNG:stepSubmit /&gt;
+	&lt;/bbNG:dataCollection&gt;
+&lt;/bbNG:form&gt;</pre>
+<img src="images/dataCollectionExample.png"/>
+</body>
+</html>
